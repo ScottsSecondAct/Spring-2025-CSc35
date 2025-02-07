@@ -23,6 +23,9 @@ a.out
 .deps
 .libs
 
+lab*\
+Lab*\
+
 autom4te.cache
 config.cache
 # GCC does not support in-tree builds, do not conceal a stray config.h:
