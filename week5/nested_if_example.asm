@@ -1,3 +1,14 @@
+# if number >= 10: 
+#    if number < 100:
+#       print("number >= 10 and number < 100")
+#    else:
+#       print ("number >= 10 and number >= 100")
+# else:
+#    if number < 5:
+#       print("number < 10 and number < 5")
+#    else:
+#       print("number < 10 and number >= 5")
+#
 .intel_syntax noprefix
 
 .data
