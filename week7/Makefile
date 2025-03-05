@@ -1,34 +1,26 @@
-build:
-	as -o add.o add.asm
-	ld -o add add.o csc35.o
-	as -o sub.o sub.asm
-	ld -o sub sub.o csc35.o
-	as -o inc.o inc.asm
-	ld -o inc inc.o csc35.o
-	as -o dec.o dec.asm
-	ld -o dec dec.o csc35.o
-	as -o mul.o mul.asm
-	ld -o mul mul.o csc35.o
-	as -o imul.o imul.asm
-	ld -o imul imul.o csc35.o
-	as -o div.o div.asm
-	ld -o div div.o csc35.o
-	as -o idiv.o idiv.asm
-	ld -o idiv idiv.o csc35.o
+# List all assembly source files here
+ASM_FILES = add.asm sub.asm inc.asm dec.asm mul.asm imul.asm div.asm idiv.asm
+
+# Convert .asm filenames to object filenames
+OBJS = $(ASM_FILES:.asm=.o)
+
+# Convert .asm filenames to the final executables (remove .asm entirely)
+TARGETS = $(ASM_FILES:.asm=)
+
+# Default rule (use `make` or `make build`)
+build: $(TARGETS)
+
+# Rule to build each executable from its .o and csc35.o
+# $@  = target name  (e.g., add, sub, ...)
+# $^  = all prerequisites (e.g., add.o csc35.o)
+%: %.o csc35.o
+	ld -o $@ $^
+
+# Rule to assemble each .asm into .o
+%.o: %.asm
+	as -o $@ $<
+
+# Clean up all compiled objects and executables,
+# but leave csc35.o alone.
 clean:
-	rm add.o
-	rm add
-	rm sub.o
-	rm sub
-	rm inc.o
-	rm inc
-	rm dec.o
-	rm dec
-	rm mul.o
-	rm mul
-	rm imul.o
-	rm imul
-	rm div.o
-	rm div
-	rm idiv.o
-	rm idiv
+	rm -f $(OBJS) $(TARGETS)
