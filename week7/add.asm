@@ -6,10 +6,14 @@ val2: .quad 20
 NewLine: .ascii "\n\0"
 
 .text
-.global Main
-Main:
+.global _start
+_start:
     # add r/m64, imm32
     add qword ptr [val1], 5         # [val1] = 10 + 5
+    
+    # add r, imm32
+    mov rdx, [val1]
+    add rdx, 10                      # rdx = 15 + 10
 
     # add r/m64, r64
     mov rax, 10
@@ -26,4 +30,6 @@ Main:
     mov rbx, 3
     add rax, rbx                    # rax = 60 + 3 = 63
 
-    call EndProgram
+    mov  rax, 60   #60 = sys_exit
+    mov  rdi, 0    #No error
+    syscall
