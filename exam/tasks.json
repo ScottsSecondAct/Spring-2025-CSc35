@@ -1,0 +1,41 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "assemble",
+      "type": "shell",
+      "command": "as",
+      "args": [
+        "--64",
+        "-g",
+        "-o",
+        "${fileBasenameNoExtension}.o",
+        "${file}"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "link",
+      "type": "shell",
+      "command": "ld",
+      "args": [
+        "-o",
+        "${fileBasenameNoExtension}",
+        "${fileBasenameNoExtension}.o",
+        "${fileDirname}/csc35.o"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": false
+      },
+      "problemMatcher": [],
+      "dependsOn": [
+        "assemble"
+      ]
+    }
+  ]
+}

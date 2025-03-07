@@ -33,19 +33,20 @@
       }
     },
     {
-      "label": "objcopy",
+      "label": "clean",
       "type": "shell",
-      "command": "objcopy",
+      "command": "rm",
       "args": [
-        "-O",
-        "binary",
-        "${fileDirname}/${fileBasenameNoExtension}.elf",
-        "${fileDirname}/${fileBasenameNoExtension}.binary"
+        "${fileDirname}/add.o",
+        "${fileDirname}/add"
       ],
-      "dependsOn": "link",
       "group": {
         "kind": "build",
-        "isDefault": true
+        "isDefault": false
+      },
+      // (Optional) Show output in the Terminal so you can see it run:
+      "presentation": {
+        "reveal": "always"
       }
     }
   ]
