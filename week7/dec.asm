@@ -12,4 +12,6 @@ Main:
     mov rax, 10
     dec rax                 # rax = 9
 
-    call EndProgram
+    mov  rax, 60   #60 = sys_exit
+    mov  rdi, 0    #No error
+    syscall

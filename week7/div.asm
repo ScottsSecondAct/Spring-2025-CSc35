@@ -16,4 +16,6 @@ Main:
     xor rdx, rdx
     div qword ptr [val1] # 22 / 4 → RAX=5, RDX=2
 
-    call EndProgram
+    mov  rax, 60   #60 = sys_exit
+    mov  rdi, 0    #No error
+    syscall

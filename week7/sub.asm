@@ -24,5 +24,7 @@ Main:
     mov rbx, 5
     sub rax, rbx                    # rax = 80 - 5 = 75
 
-    call EndProgram
+    mov  rax, 60   #60 = sys_exit
+    mov  rdi, 0    #No error
+    syscall
 

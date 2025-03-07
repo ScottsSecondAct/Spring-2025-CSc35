@@ -19,4 +19,6 @@ Main:
     mov rcx, 10
     imul rcx, rcx, -3       # rcx = 10 * (-3) = -30
 
-    call EndProgram
+    mov  rax, 60   #60 = sys_exit
+    mov  rdi, 0    #No error
+    syscall

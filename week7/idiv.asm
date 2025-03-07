@@ -17,4 +17,6 @@ Main:
     cqo                 # sign-extend 25 into RDX:RAX
     idiv qword ptr [val1]  # 25 / -3 → RAX=-8, remainder RDX=1
 
-    call EndProgram
+    mov  rax, 60   #60 = sys_exit
+    mov  rdi, 0    #No error
+    syscall

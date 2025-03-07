@@ -15,4 +15,6 @@ Main:
     # mul with memory operand
     mul qword ptr [val1] # RAX=30 * 6 = 180, RDX=0
 
-    call EndProgram
+    mov  rax, 60   #60 = sys_exit
+    mov  rdi, 0    #No error
+    syscall
