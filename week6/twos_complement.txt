@@ -1,0 +1,17 @@
+Logically twos-complemnt is the same as subtracting 
+the number from 2n where n is the total number of 
+bits in the integer.
+
+Example:
+
+value = 0001 1000 (24)
+value_not = 1110 0111
+value_not_plus_1 = 1110 1000
+
+n = 8
+2^n = 256
+     - 24
+      ---
+      232
+
+232 = 1110 1000

@@ -43,7 +43,7 @@ cscope.out
 
 .local.vimrc
 .lvimrc
-.vscode
+#.vscode
 
 .clang-format
 .clang-tidy

@@ -1,0 +1,53 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "assemble",
+      "type": "shell",
+      "command": "as",
+      "args": [
+        "--64",
+        "-g",
+        "-o",
+        "${fileDirname}/${fileBasenameNoExtension}.o",
+        "${file}"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": false
+      }
+    },
+    {
+      "label": "link",
+      "type": "shell",
+      "command": "ld",
+      "args": [
+        "${fileDirname}/${fileBasenameNoExtension}.o",
+        "-o",
+        "${fileDirname}/${fileBasenameNoExtension}"
+      ],
+      "dependsOn": "assemble",
+      "group": {
+        "kind": "build",
+        "isDefault": false
+      }
+    },
+    {
+      "label": "clean",
+      "type": "shell",
+      "command": "rm",
+      "args": [
+        "${fileDirname}/add.o",
+        "${fileDirname}/add"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": false
+      },
+      // (Optional) Show output in the Terminal so you can see it run:
+      "presentation": {
+        "reveal": "always"
+      }
+    }
+  ]
+}
